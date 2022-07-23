@@ -6,10 +6,20 @@
   padding: 10px;
   opacity: 0.8;
   border-radius: 25px;
+  display: flex;
+  flex-direction: row;
 }
-
+.legend-container label {
+  padding:2px;
+}
 .legend-container img {
   height: 15px;
   width: 15px;
   margin-right: 5px;
 }
+.custom-toggle .react-toggle-track{
+  width: 15px !important;
+  height: 15px !important;
+}
+.custom-toggle .react-toggle-thumb{  width: 15px !important;
+  height: 15px !important;}
