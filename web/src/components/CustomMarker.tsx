@@ -21,7 +21,7 @@ const CustomMarker: FC<CustomMarkerProps> = ({
   propose,
   cords,
 }) => {
-  const iconSize: PointExpression = [13, 13];
+  const iconSize: PointExpression = [10, 10];
   const position = cords as LatLngExpression;
   const icon = new Icon({
     iconUrl: getImageUrl(category),

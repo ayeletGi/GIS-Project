@@ -2,7 +2,7 @@ import L from "leaflet";
 import { FC, useEffect } from "react";
 import { useMap } from "react-leaflet";
 import { renderToString } from "react-dom/server";
-import { telAvivData } from "../jsons/tel-aviv-json100";
+import { telAvivData } from "../jsons/tel-aviv-json";
 import { getCategoriesMap } from "../icons/icons-service";
 import "../styles/Legend.css";
 

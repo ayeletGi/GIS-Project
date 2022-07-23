@@ -1,19 +1,19 @@
 import { FC } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { LatLngExpression } from "leaflet";
-import { telAvivData } from "../jsons/tel-aviv-json100";
+import { telAvivData } from "../jsons/tel-aviv-json";
 import { CustomLegend } from "./CustomLegend";
 import CustomMarker from "./CustomMarker";
 
 const MapComponent: FC = () => {
   const telAvivCenter: LatLngExpression = [32.079333, 34.784499];
-  const zoomLevel = 13;
+  const zoomLevel = 14;
 
   return (
     <MapContainer
       center={telAvivCenter}
       zoom={zoomLevel}
-      scrollWheelZoom={true}
+      scrollWheelZoom={false}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
