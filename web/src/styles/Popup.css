@@ -1,0 +1,5 @@
+.popup-container p{
+    direction: rtl;
+      text-align: right;
+    align-items: center;
+}
