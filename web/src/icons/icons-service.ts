@@ -55,3 +55,6 @@ export function getImageUrl(category: string) {
       return foodStoreImage;
   }
 }
+
+
+
