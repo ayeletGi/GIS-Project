@@ -2,17 +2,17 @@ import '../styles/SideBar.css';
 import { telAvivData } from "../jsons/tel-aviv-json";
 import { getCategoriesMap } from '../icons/icons-service';
 import { Checkbox } from 'semantic-ui-react';
-import { toggleCategory } from '../stateMachine/UpdateGlobalStates';
+// import { toggleCategory } from '../stateMachine/UpdateGlobalStates';
 import { useStateMachine } from 'little-state-machine';
 
 
 function SideBar() {
 
-  const CategoriesMap = getCategoriesMap(telAvivData);
-  const { state, actions } = useStateMachine({
-    toggleCategory
-  });  
-   
+  const CategoriesMap = getCategoriesMap();
+//   const { state, actions } = useStateMachine({
+//     toggleCategory
+//   });  
+// console.log('state', state)   
   // actions.toggleCategory("lolo")
   return (   
   <div className='sideBarContainer'>
