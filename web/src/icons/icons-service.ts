@@ -8,20 +8,21 @@ import guardServiceImage from "./guard-service.png";
 import natureBuisnessImage from "./nature-buisness.webp";
 import fuelServiceImage from "./fuel_service.png";
 import waterServicesImage from "./water_services.png";
+import { telAvivData } from "../jsons/tel-aviv-json";
 
-export function logCategories(dataArr: any) {
+export function getDifferentCategories() {
   let arr: string[] = [];
-  dataArr.forEach((element: any) => {
+  telAvivData.forEach((element: any) => {
     if (!arr.includes(element.category)) {
       arr.push(element.category);
     }
   });
-  console.log(arr);
+  return arr;
 }
 
-export function getCategoriesMap(dataArr: any) {
+export function getCategoriesMap() {
   let map: { [id: string]: string } = {};
-  dataArr.forEach((element: any) => {
+  telAvivData.forEach((element: any) => {
     if (!Object.keys(map).includes(element.category)) {
       map[element.category] = getImageUrl(element.category);
     }

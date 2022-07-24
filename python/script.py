@@ -10,11 +10,12 @@ stat_df = stat_df.dropna()
 
 telAviv_data = stat_df[stat_df['SHEM_YISHUV_ENGLISH'] == 'TEL AVIV - YAFO']
 # print(telAviv_data.head)
+telAviv_data.to_csv("./data/tel-aviv-stats.csv", sep='\t', encoding='utf-8')
 
-result = telAviv_data.to_json(orient="records")
-parsed = json.loads(result)
-json.dumps(parsed, indent=4)
-# print(parsed)
+# result = telAviv_data.to_json(orient="records")
+# parsed = json.loads(result)
+# json.dumps(parsed, indent=4)
+# # print(parsed)
 
-with open("./data/tel-aviv-stats.json", "w+") as f:
-    f.writelines(result)
+# with open("./data/tel-aviv-stats.json", "w+") as f:
+#     f.writelines(result)
