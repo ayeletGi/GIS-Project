@@ -2,7 +2,6 @@ import L from "leaflet";
 import { FC, useEffect } from "react";
 import { useMap } from "react-leaflet";
 import { renderToStaticMarkup } from "react-dom/server";
-import { telAvivData } from "../jsons/tel-aviv-json";
 import { getCategoriesMap } from "../icons/icons-service";
 
 import "../styles/Legend.css";
@@ -11,8 +10,7 @@ export const CustomLegend: FC = () => {
   const mapRef = useMap();
 
   useEffect(() => {
-    // logCategories(telAvivData);
-    const CategoriesMap = getCategoriesMap(telAvivData);
+    const CategoriesMap = getCategoriesMap();
     const legend = new L.Control({ position: "bottomright" });
 
     legend.onAdd = () => {
