@@ -11,8 +11,8 @@ createStore({
 function App() {
   return (
     <StateMachineProvider>
-      <SideBar />
-      <Map />
+      <SideBar/>
+      <Map/>
     </StateMachineProvider>
   );
 }

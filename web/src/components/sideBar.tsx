@@ -4,16 +4,16 @@ import { getCategoriesMap } from '../icons/icons-service';
 import { Checkbox } from 'semantic-ui-react';
 // import { toggleCategory } from '../stateMachine/UpdateGlobalStates';
 import { useStateMachine } from 'little-state-machine';
+import { toggleCategory } from '../stateMachine/UpdateGlobalStates';
 
 
 function SideBar() {
 
   const CategoriesMap = getCategoriesMap();
-//   const { state, actions } = useStateMachine({
-//     toggleCategory
-//   });  
-// console.log('state', state)   
-  // actions.toggleCategory("lolo")
+  const { state, actions } = useStateMachine({
+    toggleCategory
+  });  
+console.log('state', state)   
   return (   
   <div className='sideBarContainer'>
 
