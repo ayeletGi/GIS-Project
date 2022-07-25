@@ -29,6 +29,7 @@ export function getCategoriesMap() {
   });
   return map;
 }
+
 export function getImageUrl(category: string) {
   switch (category) {
     case "מזון":
@@ -58,14 +59,39 @@ export function getImageUrl(category: string) {
 }
 
 export function initialCategoriesState() {
-  let dict: {[key:string]: boolean } = {};
+  let dict: { [key: string]: boolean } = {};
   telAvivData.forEach((element: any) => {
     if (!Object.keys(dict).includes(element.category)) {
-      dict[element.category]= false;
+      dict[element.category] = false;
     }
   });
-  
   return dict;
 }
+export const ageGroupsLablesArr = [
+  "0-4",
+  "5-9",
+  "10-14",
+  "15-19",
+  "20-24",
+  "25-29",
+  "30-34",
+  "35-39",
+  "40-44",
+  "45-49",
+  "50-54",
+  "55-59",
+  "60-64",
+  "65-69",
+  "70-74",
+  "75-79",
+  "80-84",
+  "85 and up",
+];
 
-
+export function initialAgesState() {
+  let dict: { [key: string]: boolean } = {};
+  ageGroupsLablesArr.map((label) => {
+    dict[label] = false;
+  });
+  return dict;
+}
