@@ -5,10 +5,23 @@ export function toggleCategory(
     payload: { selected:string}
   ): GlobalState {
     const prev = state.chosenCategories[`${payload.selected}`]
-    console.log(payload);
+
     return {
       ...state,
       chosenCategories:
       {...state.chosenCategories, [payload.selected]:!prev}
     };
   }
+  
+  export function toggleAgeGroup(
+    state: GlobalState,
+    payload: { selected:string}
+  ): GlobalState {
+    const prev = state.chosenAges[`${payload.selected}`]
+    return {
+      ...state,
+      chosenAges:
+      {...state.chosenAges, [payload.selected]:!prev}
+    };
+  }
+
