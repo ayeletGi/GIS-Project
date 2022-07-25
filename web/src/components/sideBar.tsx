@@ -37,6 +37,7 @@ function SideBar() {
           onChange={()=>{
             console.log('pressed', key)
             actions.toggleCategory({selected:key})}}
+            defaultChecked = {state.chosenCategories[key]}
           >
         </Checkbox>
       ))}
@@ -50,6 +51,7 @@ function SideBar() {
           onChange={()=>{
             console.log('pressed', ageLabel)
             actions.toggleAgeGroup({selected:ageLabel})}}
+            defaultChecked = {state.chosenAges[ageLabel]}
           >
         </Checkbox>
       ))}
