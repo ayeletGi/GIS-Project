@@ -56,3 +56,16 @@ export function getImageUrl(category: string) {
       return foodStoreImage;
   }
 }
+
+export function initialCategoriesState() {
+  let dict: {[key:string]: boolean } = {};
+  telAvivData.forEach((element: any) => {
+    if (!Object.keys(dict).includes(element.category)) {
+      dict[element.category]= false;
+    }
+  });
+  
+  return dict;
+}
+
+
