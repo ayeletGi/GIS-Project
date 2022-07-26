@@ -5,6 +5,5 @@ declare module "little-state-machine" {
   interface GlobalState {
     chosenCategories:{[key:string]: boolean };
     chosenAges:{[key:string]: boolean };
-    showAreasBorders: boolean;
   }
 };

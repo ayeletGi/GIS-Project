@@ -22,11 +22,3 @@ export function toggleAgeGroup(
     chosenAges: { ...state.chosenAges, [payload.selected]: !prev },
   };
 }
-
-export function toggleShowAreasBorders(state: GlobalState): GlobalState {
-  const prev = state.showAreasBorders;
-  return {
-    ...state,
-    showAreasBorders: !prev,
-  };
-}

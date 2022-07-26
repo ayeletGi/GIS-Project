@@ -97,15 +97,29 @@ export function initialAgesState() {
 }
 
 export function colorByPrecentGroup(percent: number) {
-
   if (percent <= 0.1) return 'aliceblue';
-  if (percent <= 0.2) return 'dodgerblue'; 
-  if (percent <= 0.3) return 'blue'; 
-  if (percent <= 0.4) return 'navy'; 
-  if (percent <= 0.5) return 'orchid';
-  if (percent <= 0.6) return 'magenta'; 
-  if (percent <= 0.7) return 'blueviolet';
-  if (percent <= 0.8) return 'darkviolet';
-  if (percent <= 0.9) return 'indigo';
-  return '';
+  if (percent <= 0.2) return 'dodgerblue';
+  if (percent <= 0.3) return 'blue';
+  if (percent <= 0.4) return 'navy';
+  if (percent <= 0.5) return 'midnightblue';
+  if (percent <= 0.6) return 'plum';
+  if (percent <= 0.7) return 'orangered';
+  if (percent <= 0.8) return 'crimson';
+  if (percent <= 0.9) return 'maroon';
+  return 'red';
+}
+
+export function getPercentageColorsMap() {
+  return {
+    "מתחת 1%": 'aliceblue',
+    "1% - 2%": 'dodgerblue',
+    "2% - 3%": 'blue',
+    "3% - 4%": 'navy',
+    "4% - 5%": 'midnightblue',
+    "5% - 6%": 'plum',
+    "6% - 7%": 'orangered',
+    "7% - 8%": 'crimson',
+    "8% - 9%": 'maroon',
+    "מעל 9%": 'red',
+  };
 }

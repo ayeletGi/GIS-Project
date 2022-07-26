@@ -2,7 +2,7 @@ import L from "leaflet";
 import { FC, useEffect } from "react";
 import { useMap } from "react-leaflet";
 import { renderToStaticMarkup } from "react-dom/server";
-import { getCategoriesMap } from "../icons/icons-service";
+import { getCategoriesMap, getPercentageColorsMap } from "../icons/icons-service";
 import "../styles/Legend.css";
 
 export const CustomLegend: FC = () => {
@@ -10,11 +10,12 @@ export const CustomLegend: FC = () => {
 
   useEffect(() => {
     const CategoriesMap = getCategoriesMap();
+    const PercantageMap = getPercentageColorsMap();
     const legend = new L.Control({ position: "bottomright" });
 
     legend.onAdd = () => {
       const div = L.DomUtil.create("div", "legend-container");
-      div.innerHTML = renderToStaticMarkup(innerLegend(CategoriesMap));
+      div.innerHTML = renderToStaticMarkup(innerLegend(CategoriesMap, PercantageMap));
       return div;
     };
     legend.addTo(mapRef);
@@ -23,15 +24,25 @@ export const CustomLegend: FC = () => {
   return null;
 };
 
-const innerLegend = (CategoriesMap: { [id: string]: string }) => {
+const innerLegend = (CategoriesMap: { [id: string]: string }, PercantageMap: { [id: string]: string }) => {
   return (
     <>
-      {Object.keys(CategoriesMap).map((key) => (
-        <label key={key}>
-          <span>{key}</span>
-          <img src={CategoriesMap[key]} alt={key} />
-        </label>
-      ))}
+      <div className="legend-row">
+        <span>אחוז קבוצת הגילאים מכלל האוכלוסיה:</span>
+        {Object.keys(PercantageMap).map((key) => (
+          <label key={key}>
+            <span style={{ color: PercantageMap[key] }}>{key}</span>
+          </label>
+        ))}
+      </div>
+      <div className="legend-row">
+        {Object.keys(CategoriesMap).map((key) => (
+          <label key={key}>
+            <span>{key}</span>
+            <img src={CategoriesMap[key]} alt={key} />
+          </label>
+        ))}
+      </div>
     </>
   );
 };

@@ -4,8 +4,12 @@
   text-align: right;
   align-items: center;
   padding: 10px;
-  opacity: 0.8;
+  opacity: 0.9;
   border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+}
+.legend-row{
   display: flex;
   flex-direction: row;
 }
