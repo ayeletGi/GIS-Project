@@ -8,11 +8,11 @@ import guardServiceImage from "./guard-service.png";
 import natureBuisnessImage from "./nature-buisness.webp";
 import fuelServiceImage from "./fuel_service.png";
 import waterServicesImage from "./water_services.png";
-import { telAvivData } from "../jsons/tel-aviv-json";
+import { storesData } from "../jsons/tel-aviv-json";
 
 export function getDifferentCategories() {
   let arr: string[] = [];
-  telAvivData.forEach((element: any) => {
+  storesData.forEach((element: any) => {
     if (!arr.includes(element.category)) {
       arr.push(element.category);
     }
@@ -22,7 +22,7 @@ export function getDifferentCategories() {
 
 export function getCategoriesMap() {
   let map: { [id: string]: string } = {};
-  telAvivData.forEach((element: any) => {
+  storesData.forEach((element: any) => {
     if (!Object.keys(map).includes(element.category)) {
       map[element.category] = getImageUrl(element.category);
     }
@@ -60,7 +60,7 @@ export function getImageUrl(category: string) {
 
 export function initialCategoriesState() {
   let dict: { [key: string]: boolean } = {};
-  telAvivData.forEach((element: any) => {
+  storesData.forEach((element: any) => {
     if (!Object.keys(dict).includes(element.category)) {
       dict[element.category] = false;
     }

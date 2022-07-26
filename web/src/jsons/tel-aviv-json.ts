@@ -1,4 +1,4 @@
-export const telAvivData = [
+export const storesData = [
 { id:0,
 name:"קפה בכיכר",
 info:"4.2ב - בית אוכל להכנה והגשת תה וקפה, הכנה ומכירת כריכים.",

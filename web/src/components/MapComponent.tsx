@@ -1,30 +1,44 @@
 import { FC } from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, Polygon } from "react-leaflet";
+import { useStateMachine } from "little-state-machine";
 import { LatLngExpression } from "leaflet";
-import { telAvivData } from "../jsons/tel-aviv-json";
+import { storesData } from "../jsons/tel-aviv-json";
+import { agesData } from "../jsons/tel-aviv-ages-stats";
 import { CustomLegend } from "./CustomLegend";
 import CustomMarker from "./CustomMarker";
-import { useStateMachine } from "little-state-machine";
+import CustomPolygon from "./CustomPolygon";
 
 const MapComponent: FC = () => {
   const telAvivCenter: LatLngExpression = [32.079333, 34.784499];
   const zoomLevel = 14;
-  const { state, actions } = useStateMachine()
+  const { state } = useStateMachine();
+
   return (
     <MapContainer
       center={telAvivCenter}
       zoom={zoomLevel}
       scrollWheelZoom={false}
     >
+      {/* background map */}
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
-      {telAvivData.map((telAvivRow) => (
-        state.chosenCategories[telAvivRow.category]&&
-        <CustomMarker key={telAvivRow.id} {...telAvivRow} />
+
+      {/* stores markers */}
+      {storesData.map(
+        (storeRow) =>
+          state.chosenCategories[storeRow.category] && (
+            <CustomMarker key={storeRow.id} {...storeRow} />
+          )
+      )}
+
+      {/* stat area polygons */}
+      {agesData.map((areaRow) => (
+        <CustomPolygon key={areaRow.OBJECTID} geometry={areaRow.geometry} />
       ))}
-      <CustomLegend/>
+
+      <CustomLegend />
     </MapContainer>
   );
 };
