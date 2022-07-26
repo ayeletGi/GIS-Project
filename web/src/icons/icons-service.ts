@@ -62,7 +62,7 @@ export function initialCategoriesState() {
   let dict: { [key: string]: boolean } = {};
   storesData.forEach((element: any) => {
     if (!Object.keys(dict).includes(element.category)) {
-      dict[element.category] = false;
+      dict[element.category] = true;
     }
   });
   return dict;
@@ -85,13 +85,27 @@ export const ageGroupsLablesArr = [
   "70-74",
   "75-79",
   "80-84",
-  "85 and up",
+  "85 ומעלה",
 ];
 
 export function initialAgesState() {
   let dict: { [key: string]: boolean } = {};
-  ageGroupsLablesArr.map((label) => {
+  ageGroupsLablesArr.forEach((label) => {
     dict[label] = false;
   });
   return dict;
+}
+
+export function colorByPrecentGroup(percent: number) {
+
+  if (percent <= 0.1) return 'aliceblue';
+  if (percent <= 0.2) return 'dodgerblue'; 
+  if (percent <= 0.3) return 'blue'; 
+  if (percent <= 0.4) return 'navy'; 
+  if (percent <= 0.5) return 'orchid';
+  if (percent <= 0.6) return 'magenta'; 
+  if (percent <= 0.7) return 'blueviolet';
+  if (percent <= 0.8) return 'darkviolet';
+  if (percent <= 0.9) return 'indigo';
+  return '';
 }

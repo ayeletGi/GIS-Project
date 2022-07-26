@@ -2,7 +2,7 @@ import { Icon, LatLngExpression, PointExpression } from "leaflet";
 import { FC } from "react";
 import { Marker, Tooltip } from "react-leaflet";
 import { getImageUrl } from "../icons/icons-service";
-import CustomPopup from "./CustomPopup";
+import CustomStorePopup from "./CustomStorePopup";
 
 type CustomMarkerProps = {
   id: number;
@@ -21,7 +21,7 @@ const CustomMarker: FC<CustomMarkerProps> = ({
   propose,
   cords,
 }) => {
-  const iconSize: PointExpression = [10, 10];
+  const iconSize: PointExpression = [20, 20];
   const position = cords as LatLngExpression;
   const icon = new Icon({
     iconUrl: getImageUrl(category),
@@ -30,7 +30,7 @@ const CustomMarker: FC<CustomMarkerProps> = ({
 
   return cords ? (
     <Marker position={position} icon={icon}>
-      <CustomPopup
+      <CustomStorePopup
         storeName={name}
         storePropose={propose}
         storeStreet={street}

@@ -8,7 +8,7 @@ type CustomPopupProps = {
   storePropose: string;
 };
 
-const CustomPopup: FC<CustomPopupProps> = ({
+const CustomStorePopup: FC<CustomPopupProps> = ({
   storeName,
   storeStreet,
   storePropose,
@@ -22,4 +22,4 @@ const CustomPopup: FC<CustomPopupProps> = ({
   );
 };
 
-export default CustomPopup;
+export default CustomStorePopup;

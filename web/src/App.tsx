@@ -6,7 +6,8 @@ import { initialAgesState, initialCategoriesState } from "./icons/icons-service"
 
 createStore({
   chosenCategories: { ...initialCategoriesState() },
-  chosenAges: {...initialAgesState()},
+  chosenAges: { ...initialAgesState() },
+  showAreasBorders: true,
 });
 
 function App() {

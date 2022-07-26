@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { MapContainer, TileLayer, Polygon } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import { useStateMachine } from "little-state-machine";
 import { LatLngExpression } from "leaflet";
 import { storesData } from "../jsons/tel-aviv-json";
@@ -35,7 +35,7 @@ const MapComponent: FC = () => {
 
       {/* stat area polygons */}
       {agesData.map((areaRow) => (
-        <CustomPolygon key={areaRow.OBJECTID} geometry={areaRow.geometry} />
+        <CustomPolygon key={areaRow.OBJECTID} {...areaRow} />
       ))}
 
       <CustomLegend />
